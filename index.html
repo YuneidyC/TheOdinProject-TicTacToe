@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/tic-tac-toe.png">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <h1>TIC TAC TOE</h1>
+    <div class="container">
+        <div class="text">
+            <div class="users">
+                <div class="player player-1">
+                    <p id="player1"></p>
+                    <p class="mark">X</p>
+                </div>
+                <div class="player player-2">
+                    <p id="player2"></p>
+                    <p class="mark">O</p>
+                </div>
+            </div>
+            <p id="winner"></p>
+            <p id="draw"></p>
+        </div>
+        <div class="container-game">
+            <div class="row row-1">
+                <div class="col col-1 matrix-00"></div>
+                <div class="col col-2 matrix-01"></div>
+                <div class="col col-3 matrix-02"></div>
+            </div>
+            <div class="row row-2">
+                <div class="col col-1 matrix-10"></div>
+                <div class="col col-2 matrix-11"></div>
+                <div class="col col-3 matrix-12"></div>
+            </div>
+            <div class="row row-3">
+                <div class="col col-1 matrix-20"></div>
+                <div class="col col-2 matrix-21"></div>
+                <div class="col col-3 matrix-22"></div>
+            </div>
+        </div>
+        <button>Reset Game</button>
+    </div>
+</body>
+</html>
