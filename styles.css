@@ -153,6 +153,15 @@ p {
     opacity: 0.7;
 }
 
+.buttons {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
 button {
     width: auto;
     height: 40px;
@@ -163,10 +172,11 @@ button {
     font-weight: 700;
     border: 0;
     border-radius: 5px;
-    margin-top: 40px;
+
     cursor: default;
 }
 
+.start,
 .reset {
     cursor: pointer;
 }

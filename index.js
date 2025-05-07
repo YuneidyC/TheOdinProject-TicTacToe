@@ -1,6 +1,8 @@
 const container = document.getElementsByClassName('container');
-const btn = document.getElementsByTagName('button')[0];
-btn.addEventListener('click', resetGame);
+const btn = document.getElementsByTagName('button');
+
+btn[0].addEventListener('click', startNewGame);
+btn[1].addEventListener('click', resetGame);
 
 let players = [];
 let cont = 0;
@@ -43,18 +45,27 @@ function createPlayer(player, char) {
     players.push(player1);
 }
 
-createPlayer('player' + 1, 'X');
-createPlayer('player' + 2, 'O');
+function startNewGame() {
+    if (players.length > 0) {
+        players.length = 0;
+    }
+    createPlayer('player' + 1, 'X');
+    createPlayer('player' + 2, 'O');
 
-playerActive('O');
+    playerActive('O');
 
-startGame();
-createMatrix();
+    startGame();
+    createMatrix();
+    resetGame();
+}
+
+startNewGame();
 
 function startGame() {
     const col = document.getElementsByClassName('col');
 
-    btn.removeEventListener('click', resetGame);
+    btn[0].removeEventListener('click', startNewGame);
+    btn[1].removeEventListener('click', resetGame);
 
     playerActive('O');
 
@@ -72,8 +83,10 @@ function endGame() {
         col[i].classList.add('win');
     }
 
-    document.getElementsByTagName('button')[0].style.opacity = '1';
-    document.getElementsByTagName('button')[0].classList.add('reset');
+    btn[0].classList.add('start');
+    btn[0].style.opacity = '1';
+    btn[1].classList.add('reset');
+    btn[1].style.opacity = '1';
 }
 
 function playerActive(mark) {
@@ -112,11 +125,13 @@ function selection(element, position) {
     if (cont >= 4) {
         winner = theWinnerIs(char);
         if (winner.length > 0) {
-            btn.addEventListener('click', resetGame);
+            btn[0].addEventListener('click', startNewGame);
+            btn[1].addEventListener('click', resetGame);
             winnerStyle(winner, "#90ee90");
+
             const usersStyle = document.getElementsByClassName("player");
 
-            for (let i = 0; i < players.length; i++) {
+            for (let i = 0; i < usersStyle.length; i++) {
                 usersStyle[i].style.opacity = "0.5";
             }
 
@@ -134,8 +149,8 @@ function selection(element, position) {
         const draw = document.getElementById('draw');
         draw.innerHTML = "draw";
 
-        document.getElementsByTagName('button')[0].classList.add('reset');
-        document.getElementsByTagName('button')[0].style.opacity = '1';
+        btn[0].classList.add('start').style.opacity = '1';
+        btn[1].classList.add('reset').style.opacity = '1';
 
         document.getElementsByClassName("player")[0].style.opacity = "0.5";
         document.getElementsByClassName("player")[1].style.opacity = "0.5";
@@ -219,12 +234,14 @@ function resetGame() {
 
     cont = 0;
     winner = "";
-    document.getElementsByTagName('button')[0].style.opacity = '0.5';
-    document.getElementsByTagName('button')[0].classList.remove('reset');
+    btn[0].classList.remove('start');
+    btn[0].style.opacity = '0.5';
+    btn[1].classList.remove('reset');
+    btn[1].style.opacity = '0.5';
 
     const usersStyle = document.getElementsByClassName("player");
 
-    for (let i = 0; i < players.length; i++) {
+    for (let i = 0; i < usersStyle.length; i++) {
         usersStyle[i].style.opacity = "1";
     }
 
