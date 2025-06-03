@@ -1,6 +1,6 @@
-# The Odin Project - Restaurant Page
+# The Odin Project - Tic Tac Toe
 
-- [**Restaurant Page**](#RestaurantPage)
+- [**Tic Tac Toe**](#TicTacToe)
   - [**About the project**](#about-the-project)
   - [**Lighthouse**](#lighthouse)
   - [**Tech stack**](#tech-stack)
